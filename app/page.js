@@ -1,10 +1,13 @@
 "use client"
+//Imports For Code(Changes)
 import { Box, Button, Stack, TextField } from "@mui/material";
 import React, { useState } from 'react';
 import { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '../firebase.js';
 import { getAuth, signOut } from "firebase/auth";
-
+//Add this next Line
 const auth = getAuth();
+
+//Chack to make sure const is the same and make updates in your code if necessary
 export default function Page() {
     const [isAuthenticated, setIsAuthenticated] = useState(false); // State to check if user is logged in
     const [isCreatingAccount, setIsCreatingAccount] = useState(false); // State to toggle between login and create account
@@ -20,7 +23,7 @@ export default function Page() {
         },
     ]);
     const [message, setMessage] = useState('');
-
+//Handle Login is New
     const handleLogin = () => {
         if (email && password) {
             signInWithEmailAndPassword(auth, email, password)
@@ -38,6 +41,8 @@ export default function Page() {
             alert('Please enter both email and password');
         }
     };
+
+    //Handle Create Account Is New
 
     const handleCreateAccount = () => {
         if (email && password) {
@@ -58,6 +63,7 @@ export default function Page() {
         }
     };
 
+    //Handle LogOut is new
     const handleLogout = () => {
         signOut(auth)
             .then(() => {
@@ -111,6 +117,8 @@ export default function Page() {
         });
     };
 
+    //Changes were made to this if(Will Find Exactly Where)(Make sure if statement is added)
+    //This code is All New for the create account page
     if (!isAuthenticated) {
         return (
             <Box
@@ -121,6 +129,7 @@ export default function Page() {
                 justifyContent="center"
                 alignItems="center"
             >
+                    
                 <Stack spacing={3} width="300px">
                     {isCreatingAccount ? (
                         <>
@@ -166,9 +175,10 @@ export default function Page() {
                 </Stack>
             </Box>
         );
-    }
+    } 
 
-    // Render authenticated view
+
+    // Render authenticated view(Not New Code)
     return (
         <Box
             width="100vw"
@@ -220,6 +230,7 @@ export default function Page() {
                     <Button variant="contained" onClick={sendMessage}>
                         Send
                     </Button>
+        //For Log Out Button(New Code)
                 </Stack>
                 <Button variant="contained" onClick={handleLogout}>
                     Logout
