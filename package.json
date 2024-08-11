@@ -1,5 +1,29 @@
 {
+  "name": "chatsupport",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
-    "openai": "^4.54.0"
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@google/generative-ai": "^0.16.0",
+    "@mui/material": "^5.16.7",
+    "express-session": "^1.18.0",
+    "firebase": "^10.12.5",
+    "next": "14.2.5",
+    "openai": "^4.55.4",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5"
   }
 }
